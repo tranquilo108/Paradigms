@@ -83,10 +83,14 @@ class TicTacToe:
             if self.game_over:
                 self.screen.fill(self.black)
                 font = pygame.font.SysFont('Ubuntu', 27)
-                text = font.render(f'Победил: {self.game_over}. Нажмите ПКМ', True, self.white)
-                x = self.screen.get_width() / 2 - text.get_rect().width / 2
-                y = self.screen.get_height() / 2 - text.get_rect().height / 2
-                self.screen.blit(text, [x, y])
+                text1 = font.render(f'Победил {self.game_over}', True, self.white)
+                text2 = font.render('Нажмите ПКМ', True, self.white)
+                x1 = self.screen.get_width() / 2 - text1.get_rect().width / 2
+                y1 = self.screen.get_height() / 2 - text1.get_rect().height / 2
+                x2 = self.screen.get_width() / 2 - text2.get_rect().width / 2
+                y2 = self.screen.get_height() / 2 - text2.get_rect().height / 2
+                self.screen.blit(text1, [x1, y1])
+                self.screen.blit(text2, [x2, y2 + 30])
             pygame.display.update()
 
 
