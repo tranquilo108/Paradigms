@@ -13,10 +13,9 @@ numbers2 = [5, 4, 3, 2, 1]
 '''среднее от второго списка reduce(lambda x, y: x + y, numbers2) / reduce(lambda x, y: x + 1, numbers2)'''
 
 if __name__ == '__main__':
-    print(sum((xi - reduce(lambda x, y: x + y, numbers1) / reduce(lambda x, y: x + 1, numbers1)) * (
-                yi - reduce(lambda x, y: x + y, numbers2) / reduce(lambda x, y: x + 1, numbers2)) for xi, yi in
-              zip(numbers1, numbers2)) / (sum(
-        (xi - reduce(lambda x, y: x + y, numbers1) / reduce(lambda x, y: x + 1, numbers1)) ** 2 for xi in
-        numbers1) ** 0.5 * (sum(
-        (yi - reduce(lambda x, y: x + y, numbers2) / reduce(lambda x, y: x + 1, numbers1)) ** 2 for yi in
-        numbers2) ** 0.5)))
+    print(*map(lambda x, y: x / y, [(sum((xi - reduce(lambda x, y: x + y, numbers1) / 
+        reduce(lambda x, y: x + 1, numbers1)) * (yi - reduce(lambda x, y: x + y, numbers2) / 
+        reduce(lambda x, y: x + 1, numbers2)) for xi, yi in zip(numbers1, numbers2)))], 
+        [(sum((xi - reduce(lambda x, y: x + y, numbers1) / reduce(lambda x, y: x + 1, numbers1))
+        ** 2 for xi in numbers1) ** 0.5 * (sum((yi - reduce(lambda x, y: x + y, numbers2) /
+        reduce(lambda x, y: x + 1, numbers1)) ** 2 for yi in numbers2) ** 0.5))]))
